@@ -37,14 +37,14 @@ class DataTransformation:
             ]
             num_pipeline=Pipeline(
                 steps=[
-                ("imputer",SimpleImputer(strategy="median")),
+                ("imputer",SimpleImputer(strategy="median")),   #replaces null values with median
                 ("scaler",StandardScaler())
 
                 ]
             )   
             cat_pipeline=Pipeline(
                 steps=[
-                    ("imputer",SimpleImputer(strategy="most_frequent")),
+                    ("imputer",SimpleImputer(strategy="most_frequent")),    #replaces null values with mode
                     ("one_hot_encoder",OneHotEncoder()),
                     ("scaler",StandardScaler(with_mean=False))
                 ]
